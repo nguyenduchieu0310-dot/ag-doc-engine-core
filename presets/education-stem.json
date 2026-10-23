@@ -1,0 +1,67 @@
+{
+  "schema_version": "3.0.0",
+  "preset_id": "education-stem",
+  "brand": {
+    "name": "EduPortal",
+    "full_name": "Thư Viện Học Liệu Số & Khoa Học",
+    "domain": "edu.example.com",
+    "public_base_url": "https://edu.example.com",
+    "files_base_url": "https://files.edu.example.com",
+    "document_route_prefix": "/tai-lieu",
+    "dashboard_title": "AG DOC-ENGINE CORE v3.0",
+    "dashboard_subtitle": "Thu nạp Học liệu • Khử trùng Deep Sanitizer 10 Cổng • Bìa HD >=1200px • SEO KaTeX • D1 + R2",
+    "default_author": "Hội Đồng Chuyên Môn & Khảo Thí"
+  },
+  "temporal_policy": {
+    "min_eligible_year": 2023,
+    "always_accept_keywords": [
+      "chương trình mới",
+      "kết nối tri thức",
+      "chân trời sáng tạo",
+      "cánh diều"
+    ]
+  },
+  "taxonomy": {
+    "category_label": "Môn học / Chuyên ngành",
+    "level_label": "Khối lớp / Cấp độ",
+    "organization_label": "Đơn vị / Trường biên soạn",
+    "default_category": "Đa môn",
+    "default_level": "Trung học",
+    "default_document_type": "Tài liệu học tập",
+    "default_framework": "Chương trình Chuẩn",
+    "require_formulas_for_categories": ["Toán", "Vật lý", "Hóa học"],
+    "categories": [
+      { "name": "Toán", "keywords": ["toán", "hình học", "đại số", "giải tích", "math"] },
+      { "name": "Vật lý", "keywords": ["vật lý", "vật lí", "physics"] },
+      { "name": "Hóa học", "keywords": ["hóa học", "chemistry"] },
+      { "name": "Sinh học", "keywords": ["sinh học", "biology"] },
+      { "name": "Tiếng Anh", "keywords": ["tiếng anh", "english", "ielts"] },
+      { "name": "Ngữ văn", "keywords": ["ngữ văn", "văn học"] }
+    ],
+    "document_types": [
+      { "name": "Đề thi & Kiểm tra", "keywords": ["đề thi", "kiểm tra", "giữa kỳ", "cuối kỳ", "khảo sát"] },
+      { "name": "Chuyên đề & Đề cương", "keywords": ["chuyên đề", "đề cương", "ôn tập", "phân dạng"] },
+      { "name": "Giáo án & Bài giảng", "keywords": ["giáo án", "bài giảng", "kế hoạch bài dạy"] }
+    ],
+    "levels": [
+      { "name": "Cấp 3 (THPT)", "keywords": ["12", "11", "10", "thpt"] },
+      { "name": "Cấp 2 (THCS)", "keywords": ["9", "8", "7", "6", "thcs"] }
+    ],
+    "frameworks": [
+      { "name": "Chương trình Mới", "keywords": ["kết nối tri thức", "chân trời sáng tạo", "cánh diều"] }
+    ]
+  },
+  "article_template": {
+    "section_1_title": "1. Tổng quan & Ma trận tài liệu",
+    "section_2_title": "2. Phân tích cấu trúc & Kiến thức trọng tâm",
+    "section_3_title": "3. Lời giải / Đáp án chi tiết & Đối chiếu công thức",
+    "section_4_title": "4. Nhận xét chuyên môn & Hướng dẫn ôn tập",
+    "appendix_present_label": "Có đáp án / hướng dẫn giải chi tiết trong tệp",
+    "appendix_absent_label": "Đề luyện tập nguyên bản (chưa kèm bảng đáp án trong tệp)"
+  },
+  "storage": {
+    "queue_table": "ag_crawler_queue",
+    "sources_table": "ag_crawler_sources",
+    "blobs_table": "ag_crawler_blobs"
+  }
+}

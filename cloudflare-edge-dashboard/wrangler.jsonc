@@ -1,0 +1,41 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "ag-doc-engine-hub",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-09-20",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true,
+  "routes": [
+    {
+      "pattern": "example.com/hubag/crawl*",
+      "zone_name": "example.com"
+    }
+  ],
+  "triggers": {
+    "crons": ["0 1,5,9,13,17,21 * * *"]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "your-d1-database-name",
+      "database_id": "00000000-0000-0000-0000-000000000000"
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "DOCS_BUCKET",
+      "bucket_name": "your-r2-bucket-name"
+    }
+  ],
+  // Secrets ADMIN_PASS and JWT_SECRET are injected via Wrangler secrets / deployment environment
+  "vars": {
+    "APP_ENV": "production",
+    "ADMIN_USER": "admin",
+    "BASE_PATH": "/hubag/crawl",
+    "PORTAL_NAME": "AG DOC-ENGINE CORE v3.0",
+    "PORTAL_URL": "https://docs.example.com"
+  },
+  "observability": {
+    "enabled": true
+  }
+}

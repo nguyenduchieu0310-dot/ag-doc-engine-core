@@ -1,0 +1,69 @@
+{
+  "schema_version": "3.0.0",
+  "preset_id": "general-docs",
+  "brand": {
+    "name": "AG DocPortal",
+    "full_name": "AG Autonomous Document Portal",
+    "domain": "docs.example.com",
+    "public_base_url": "https://docs.example.com",
+    "files_base_url": "https://files.example.com",
+    "document_route_prefix": "/tai-lieu",
+    "dashboard_title": "AG DOC-ENGINE CORE v3.0",
+    "dashboard_subtitle": "Thu nạp Tự động • Khử trùng Deep Sanitizer 10 Cổng • Bìa HD >=1200px • Cổng QA 100/100 • D1 + R2",
+    "default_author": "Ban Biên Tập & Số Hóa Tài Liệu"
+  },
+  "temporal_policy": {
+    "min_eligible_year": 2023,
+    "always_accept_keywords": [
+      "mới nhất",
+      "cập nhật",
+      "quy chuẩn mới",
+      "phiên bản mới"
+    ]
+  },
+  "taxonomy": {
+    "category_label": "Chuyên mục",
+    "level_label": "Phân nhóm / Cấp độ",
+    "organization_label": "Đơn vị phát hành",
+    "default_category": "Tài liệu chuyên ngành",
+    "default_level": "Tiêu chuẩn",
+    "default_document_type": "Tài liệu hướng dẫn",
+    "default_framework": "Chuẩn Quốc gia & Quốc tế",
+    "require_formulas_for_categories": [],
+    "categories": [
+      { "name": "Kinh doanh & Quản trị", "keywords": ["kinh doanh", "quản trị", "doanh nghiệp", "chiến lược", "marketing", "nhân sự", "kpi"] },
+      { "name": "Tài chính & Kế toán", "keywords": ["tài chính", "kế toán", "thuế", "báo cáo tài chính", "kiểm toán", "ngân sách"] },
+      { "name": "Pháp lý & Hợp đồng", "keywords": ["pháp lý", "hợp đồng", "biểu mẫu", "nghị định", "thông tư", "luật", "quy chế"] },
+      { "name": "Công nghệ & Kỹ thuật", "keywords": ["công nghệ", "kỹ thuật", "phần mềm", "ai", "dữ liệu", "hệ thống", "tiêu chuẩn kỹ thuật"] },
+      { "name": "Nghiên cứu & Báo cáo", "keywords": ["nghiên cứu", "báo cáo", "phân tích", "khảo sát", "chuyên đề", "whitepaper"] }
+    ],
+    "document_types": [
+      { "name": "Báo cáo phân tích", "keywords": ["báo cáo", "phân tích", "thống kê", "report"] },
+      { "name": "Biểu mẫu & Quy trình", "keywords": ["biểu mẫu", "mẫu đơn", "quy trình", "sop", "template", "hợp đồng"] },
+      { "name": "Cẩm nang & Hướng dẫn", "keywords": ["cẩm nang", "hướng dẫn", "sổ tay", "handbook", "manual"] },
+      { "name": "Tài liệu chuyên đề", "keywords": ["chuyên đề", "tài liệu", "hồ sơ", "nghiên cứu"] }
+    ],
+    "levels": [
+      { "name": "Chuyên sâu", "keywords": ["chuyên sâu", "nâng cao", "cao cấp", "enterprise", "chuyên gia"] },
+      { "name": "Thực hành", "keywords": ["thực hành", "ứng dụng", "triển khai", "hướng dẫn"] },
+      { "name": "Cơ bản", "keywords": ["cơ bản", "nhập môn", "tổng quan", "căn bản"] }
+    ],
+    "frameworks": [
+      { "name": "ISO / Tiêu chuẩn Quốc tế", "keywords": ["iso", "quốc tế", "ifrs", "global"] },
+      { "name": "Quy chuẩn Hiện hành", "keywords": ["quy chuẩn", "hiện hành", "mới nhất"] }
+    ]
+  },
+  "article_template": {
+    "section_1_title": "1. Tổng quan & Hồ sơ xác thực tài liệu",
+    "section_2_title": "2. Phân tích cấu trúc & Nội dung trọng tâm",
+    "section_3_title": "3. Phụ lục, Biểu mẫu & Dữ liệu đối chiếu",
+    "section_4_title": "4. Giá trị ứng dụng & Hướng dẫn khai thác",
+    "appendix_present_label": "Có kèm phụ lục / hướng dẫn chi tiết trong tệp",
+    "appendix_absent_label": "Tài liệu nguyên bản (chưa kèm phụ lục giải thích riêng)"
+  },
+  "storage": {
+    "queue_table": "ag_crawler_queue",
+    "sources_table": "ag_crawler_sources",
+    "blobs_table": "ag_crawler_blobs"
+  }
+}

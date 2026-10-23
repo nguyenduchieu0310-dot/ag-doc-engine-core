@@ -1,0 +1,65 @@
+{
+  "schema_version": "3.0.0",
+  "preset_id": "legal-business",
+  "brand": {
+    "name": "LegalDocs Hub",
+    "full_name": "Cổng Văn Bản Pháp Luật, Hợp Đồng & Biểu Mẫu Doanh Nghiệp",
+    "domain": "vanban.example.com",
+    "public_base_url": "https://vanban.example.com",
+    "files_base_url": "https://files.vanban.example.com",
+    "document_route_prefix": "/van-ban",
+    "dashboard_title": "AG PHÁP LÝ & BIỂU MẪU v3.0",
+    "dashboard_subtitle": "Thu nạp Văn bản & Biểu mẫu • Khử trùng PII 10 Cổng • Bìa HD >=1200px • Cổng QA 100/100",
+    "default_author": "Hội Đồng Luật Sư & Chuyên Gia Pháp Chế"
+  },
+  "temporal_policy": {
+    "min_eligible_year": 2023,
+    "always_accept_keywords": [
+      "luật doanh nghiệp",
+      "luật đất đai",
+      "luật lao động",
+      "mẫu hợp đồng mới nhất"
+    ]
+  },
+  "taxonomy": {
+    "category_label": "Lĩnh vực pháp lý",
+    "level_label": "Cấp hiệu lực",
+    "organization_label": "Cơ quan / Đơn vị ban hành",
+    "default_category": "Pháp chế Doanh nghiệp",
+    "default_level": "Đang có hiệu lực",
+    "default_document_type": "Biểu mẫu & Hợp đồng",
+    "default_framework": "Hệ thống Pháp luật Việt Nam",
+    "require_formulas_for_categories": [],
+    "categories": [
+      { "name": "Hợp đồng Thương mại", "keywords": ["hợp đồng", "thương mại", "mua bán", "đại lý", "nhượng quyền"] },
+      { "name": "Lao động & Nhân sự", "keywords": ["lao động", "nhân sự", "bảo hiểm xã hội", "nội quy", "thỏa ước"] },
+      { "name": "Thuế & Kế toán", "keywords": ["thuế", "hóa đơn", "kế toán", "quyết toán", "gtgt", "tndn"] },
+      { "name": "Đất đai & Bất động sản", "keywords": ["đất đai", "bất động sản", "xây dựng", "sổ đỏ", "thuê nhà"] }
+    ],
+    "document_types": [
+      { "name": "Mẫu Hợp đồng", "keywords": ["hợp đồng", "thỏa thuận", "biên bản"] },
+      { "name": "Công văn & Tờ trình", "keywords": ["công văn", "tờ trình", "quyết định", "thông báo"] },
+      { "name": "Nghị định & Thông tư", "keywords": ["nghị định", "thông tư", "luật", "chỉ thị"] }
+    ],
+    "levels": [
+      { "name": "Cấp Quốc gia / Bộ ngành", "keywords": ["chính phủ", "quốc hội", "bộ tài chính", "bộ tư pháp"] },
+      { "name": "Cấp Doanh nghiệp", "keywords": ["doanh nghiệp", "công ty", "hội đồng quản trị", "nội bộ"] }
+    ],
+    "frameworks": [
+      { "name": "Hiệu lực Hiện hành", "keywords": ["hiện hành", "mới nhất", "2024", "2025", "2026"] }
+    ]
+  },
+  "article_template": {
+    "section_1_title": "1. Tổng quan & Hồ sơ văn bản / biểu mẫu",
+    "section_2_title": "2. Cấu trúc điều khoản & Nội dung trọng tâm",
+    "section_3_title": "3. Hướng dẫn điền mẫu & Phụ lục đính kèm",
+    "section_4_title": "4. Lưu ý pháp lý & Khuyến nghị áp dụng",
+    "appendix_present_label": "Có kèm hướng dẫn điền mẫu / phụ lục chi tiết trong tệp",
+    "appendix_absent_label": "Biểu mẫu chuẩn nguyên bản (sẵn sàng tải về sử dụng)"
+  },
+  "storage": {
+    "queue_table": "ag_crawler_queue",
+    "sources_table": "ag_crawler_sources",
+    "blobs_table": "ag_crawler_blobs"
+  }
+}

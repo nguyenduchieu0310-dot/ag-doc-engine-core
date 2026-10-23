@@ -1,0 +1,22 @@
+[
+  {
+    "source_id": "example_rss_feed",
+    "name": "Cổng Tài Liệu RSS Mẫu",
+    "domain": "docs.example.org",
+    "feed_url": "https://docs.example.org/feed",
+    "base_url": "https://docs.example.org",
+    "adapter_type": "RSS",
+    "primary_category": "Tài liệu chuyên ngành",
+    "status": "ACTIVE"
+  },
+  {
+    "source_id": "example_sitemap_portal",
+    "name": "Cổng Tài Liệu Sitemap Mẫu",
+    "domain": "library.example.org",
+    "sitemap_url": "https://library.example.org/post-sitemap.xml",
+    "base_url": "https://library.example.org",
+    "adapter_type": "SITEMAP",
+    "primary_category": "Nghiên cứu & Báo cáo",
+    "status": "ACTIVE"
+  }
+]

@@ -1,0 +1,64 @@
+name: AG DocEngine Core 24/7 Cloud Runner
+
+on:
+  schedule:
+    # Run every 4 hours (6 cycles/day) to discover, sanitize, QA-audit, and publish new documents
+    - cron: '17 */4 * * *'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'Execution mode (preflight or ingest)'
+        required: true
+        default: 'preflight'
+        type: choice
+        options:
+          - preflight
+          - ingest
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ag-doc-engine-cloud-runner
+  cancel-in-progress: false
+
+jobs:
+  run-doc-engine:
+    name: Crawl -> Sanitize -> QA 10/10 -> Publish
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout AG DocEngine Core
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install LibreOffice & Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends libreoffice-writer libreoffice-impress fonts-dejavu-core
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Execute AG DocEngine Cycle
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_D1_DATABASE_ID: ${{ secrets.CLOUDFLARE_D1_DATABASE_ID }}
+          CLOUDFLARE_R2_BUCKET: ${{ secrets.CLOUDFLARE_R2_BUCKET }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          DOCUMENT_INGEST_TOKEN: ${{ secrets.DOCUMENT_INGEST_TOKEN }}
+          PUBLIC_BASE_URL: ${{ vars.PUBLIC_BASE_URL || 'https://docs.example.com' }}
+          BRAND_NAME: ${{ vars.BRAND_NAME || 'AG DocEngine Portal' }}
+          AG_CLOUD_ENABLED: ${{ vars.AG_CLOUD_ENABLED || 'false' }}
+        run: |
+          MODE="${{ github.event.inputs.mode || 'ingest' }}"
+          if [ "$MODE" = "ingest" ] && [ "$AG_CLOUD_ENABLED" != "true" ]; then
+            echo "AG_CLOUD_ENABLED is not true; running safe read-only preflight instead."
+            MODE="preflight"
+          fi
+          python services/run_cloud_cycle.py --mode "$MODE"
